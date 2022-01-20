@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import {createStore }from 'redux'
 import { Provider } from 'react-redux'
 
+
+
 import reducers from './reducers/reducers'
 
 
-
+// api: HTTPS: https://fcc-weather-api.glitch.me/api/current?lat=35&lon=139
 
 
 

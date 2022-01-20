@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import Weather from './components/Weather'
 const handleSearch = (e) => {
   e.preventDefault()
   return (
@@ -26,6 +26,10 @@ function App() {
       />
 
       </nav>
+    <div className='weather-container'>
+
+      <Weather/>
+    </div>
     </div>
   );
 }
