@@ -1,3 +1,13 @@
+
+const initialState = {
+    weather: [
+
+        {storm: 'Rain'}
+
+    ]
+    }
+
+
 export const reducer = (state=initialState, action) => {
     switch (action.type) {
 
@@ -5,3 +15,5 @@ export const reducer = (state=initialState, action) => {
         return state;
     }
 };
+
+export default reducer;
