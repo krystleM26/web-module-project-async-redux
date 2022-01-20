@@ -4,7 +4,9 @@ import React from 'react'
 const Weather = () => {
     return (
         <div>
-            Hey I Am Weather display!
+            <h2>Here is Your Local Forecast</h2>
+ 
+
 
         </div>
     )

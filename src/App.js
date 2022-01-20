@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 import Weather from './components/Weather'
+
+
 const handleSearch = (e) => {
   e.preventDefault()
   return (
-    "Search"
+   this.state.cityName
   )
 }
 
