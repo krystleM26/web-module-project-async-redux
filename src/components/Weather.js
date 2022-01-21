@@ -1,10 +1,48 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import { connect } from 'react-redux'
+import axios from 'axios'
+import { getWeather, fetchFail, FETCH_FAIL } from './actions/WeatherActions'
+
+const Weather = ({weather, isFetching, error, dispatch}) => {
 
 
-const Weather = () => {
+useEffect(()=> {
+    dispatch(getWeather());
+}, []);
+
+
+if (error) {
+    return <h3>{error}</h3>
+}
+if (isFetching) {
+    return <h2>Getting Today's Forecast</h2>
+}
+
+const handleForecast = (e) => {
+   dispatch(getWeather());
+   
+  }
+
+
     return (
-        <div>
-            <h2>Here is Your Local Forecast</h2>
+        <div className='weather-container'>
+        <nav className="navBar">
+
+      
+    
+            <h1> The Weather App</h1>
+      <div>
+      <button onAuxClick={handleForecast}>Todays's Forecast</button>
+      <button>Weather News</button>
+      </div>
+      <input 
+      type="text"
+      name= "name"
+      placeholder='Search City, State, County or airport'
+      />
+      </nav>
+
+     
  
 
 
@@ -12,4 +50,12 @@ const Weather = () => {
     )
 }
 
-export default Weather;
+const mapStateToProps = state => {
+    return {
+        weather: state.weather,
+        isFetching: state.isFetching,
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps)(Weather);
