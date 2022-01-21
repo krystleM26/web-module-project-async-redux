@@ -32,7 +32,7 @@ const handleForecast = (e) => {
     
             <h1> The Weather App</h1>
       <div>
-      <button onAuxClick={handleForecast}>Todays's Forecast</button>
+      <button onClick={handleForecast}>Todays's Forecast</button>
       <button>Weather News</button>
       </div>
       <input 
