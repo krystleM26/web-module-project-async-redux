@@ -1,61 +1,58 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { getWeather, fetchFail, FETCH_FAIL } from './actions/WeatherActions'
 
-const Weather = ({weather, isFetching, error, dispatch}) => {
+const Weather = ({ name, main, weather, weatherApp, isFetching, error, dispatch }) => {
+
+  useEffect(() => {
+    dispatch(getWeather())
+  }, [])
+  console.log('hello');
+  console.log(weather)
+  console.log(isFetching)
+  
 
 
-useEffect(()=> {
-    dispatch(getWeather());
-}, []);
-
-
-if (error) {
+  if (error) {
     return <h3>{error}</h3>
-}
-if (isFetching) {
+  }
+  if (isFetching) {
     return <h2>Getting Today's Forecast</h2>
-}
-
-const handleForecast = (e) => {
-   dispatch(getWeather());
-   
   }
 
-
-    return (
-        <div className='weather-container'>
-        <nav className="navBar">
-
-      
-    
-            <h1> The Weather App</h1>
-      <div>
-      <button onClick={handleForecast}>Todays's Forecast</button>
-      <button>Weather News</button>
-      </div>
-      <input 
-      type="text"
-      name= "name"
-      placeholder='Search City, State, County or airport'
-      />
-      </nav>
-
-     
  
 
+  return (
+    <div className="weather-container">
+      
+    <div>
+        
 
+        Hello: {name}
+        <div>
+
+        Today we will have: {weather.description}
+
+       
         </div>
-    )
+        Temperature: {main.temp}
+        
+
+    </div>
+    </div>
+
+  )
 }
 
 const mapStateToProps = state => {
-    return {
-        weather: state.weather,
-        isFetching: state.isFetching,
-        error: state.error
-    }
+  return {
+    name: state.name,
+    weather:state.weather,
+    main: state.main,
+    isFetching: state.isFetching,
+    error: state.error,
+  }
 }
 
-export default connect(mapStateToProps)(Weather);
+export default connect(mapStateToProps)(Weather)

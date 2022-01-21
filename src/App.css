@@ -1,12 +1,8 @@
-
 .App {
   background-color: rgb(163, 204, 241);
-
 }
 
-
 .navBar {
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +11,6 @@
 
 button {
   margin: 1px;
- 
 }
 
 .weather-container {
